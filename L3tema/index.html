@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hamming Encoder</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <!-- hamming encoder start  -->
+    <div id="hamming-encoder">
+      <h1>
+        Hamming code for
+        <select v-on:change="initDataBits()" v-model="numberOfDataBits">
+          <option value="4">4</option>
+          <option value="8">8</option>
+        </select>
+        bits
+      </h1>
+    <br>
+    <ul v-for="(bit,  index) in dataBits">
+      <li>
+        <input
+          maxlength="1"
+          :placeholder="'D'+index"
+          v-model="bit.data"
+          v-bind:class="[validateBit(bit.data) ? 'valid-input' : 'invalid-input']"
+        />
+      </li>
+    </ul>
+    <br>
+    Data bits:<code>{{ dataBits }}</code>
+    <br>
+    <button v-on:click="send()">Send</button>
+    <p>{{ status }}</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script type= "text/javascript" src= "libs/vue.js"></script>
+    <script type= "text/javascript" src= "libs/axios.js"></script>
+    <script type= "text/javascript" src= "./app.js"></script>
+  </div>
+    <!-- hamming encoder end  -->
+    </body>
+  </body>
+  </body>
+</html>
